@@ -8,6 +8,8 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css"/>
+
 
         <!-- Styles -->
         <style>
@@ -67,5 +69,13 @@
         <div id="mainComponent" class="_flex-center _position-ref _full-height">
 
         </div>
+        <!-- <script
+  src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+  integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
+  crossorigin="anonymous"></script>
+        <script src="/js/jQueryUI/jquery-ui.js"></script> -->
+
+      <script src="/js/app.js" charset="utf-8"></script>
+      <!-- <script src="/js/Scripts.js" charset="utf-8"></script> -->
     </body>
 </html>
