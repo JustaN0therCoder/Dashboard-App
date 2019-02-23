@@ -81,7 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Welcome Dev Banch!
+                    Welcome to the Dev Branch!
                 </div>
 
                 <div class="links">
