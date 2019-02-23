@@ -81,12 +81,12 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Welcome to the Dev Branch!
+                    future home of the Dashboard!
                 </div>
 
                 <div class="links">
                     <a href="https://laravel.com/docs">Docs</a>
-                    <a href="/dashboard">Dashboard</a>
+                    <a href="/dsahboard">Dashboard</a>
                     <a href="https://laravel-news.com">News</a>
                     <a href="https://blog.laravel.com">Blog</a>
                     <a href="https://nova.laravel.com">Nova</a>
