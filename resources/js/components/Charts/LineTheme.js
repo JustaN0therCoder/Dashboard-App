@@ -1,6 +1,6 @@
 export default {
-   colors: ['#61d936',
-            '#552ccb',
+   colors: ['#007BFF',
+            '#DC3446',
             '#1163c9',
             '#04a1ee',
             '#08c6e0',
@@ -8,11 +8,11 @@ export default {
             '#f376c1',
             '#1b2839',],
    chart: {
-       backgroundColor: '#061a44',
+       backgroundColor: '#455A64',
        borderColor: '#000000',
        borderWidth: 0,
        className: 'dark-container',
-       plotBackgroundColor:  '#061a44',
+       plotBackgroundColor:  '#455A64',
        plotBorderColor: '#CCCCCC',
        plotBorderWidth: 0
    },

@@ -65339,10 +65339,10 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 react_highcharts__WEBPACK_IMPORTED_MODULE_3___default.a.Highcharts.setOptions(_Charts_LineTheme__WEBPACK_IMPORTED_MODULE_5__["default"]);
 var dummy = [{
   name: 'Opens',
-  data: [Math.floor(Math.random() * Math.floor(100)), Math.floor(Math.random() * Math.floor(100)), Math.floor(Math.random() * Math.floor(100)), Math.floor(Math.random() * Math.floor(100)), Math.floor(Math.random() * Math.floor(100)), Math.floor(Math.random() * Math.floor(100)), Math.floor(Math.random() * Math.floor(100)), Math.floor(Math.random() * Math.floor(100))]
+  data: [Math.floor(Math.random() * Math.floor(100)), Math.floor(Math.random() * Math.floor(100)), Math.floor(Math.random() * Math.floor(100)), Math.floor(Math.random() * Math.floor(100)), Math.floor(Math.random() * Math.floor(100)), Math.floor(Math.random() * Math.floor(100)), Math.floor(Math.random() * Math.floor(100)), Math.floor(Math.random() * Math.floor(100)), Math.floor(Math.random() * Math.floor(100)), Math.floor(Math.random() * Math.floor(100)), Math.floor(Math.random() * Math.floor(100)), Math.floor(Math.random() * Math.floor(100))]
 }, {
   name: 'Clicks',
-  data: [Math.floor(Math.random() * Math.floor(50)), Math.floor(Math.random() * Math.floor(50)), Math.floor(Math.random() * Math.floor(50)), Math.floor(Math.random() * Math.floor(50)), Math.floor(Math.random() * Math.floor(50)), Math.floor(Math.random() * Math.floor(50)), Math.floor(Math.random() * Math.floor(50)), Math.floor(Math.random() * Math.floor(50))]
+  data: [Math.floor(Math.random() * Math.floor(50)), Math.floor(Math.random() * Math.floor(50)), Math.floor(Math.random() * Math.floor(50)), Math.floor(Math.random() * Math.floor(50)), Math.floor(Math.random() * Math.floor(50)), Math.floor(Math.random() * Math.floor(50)), Math.floor(Math.random() * Math.floor(50)), Math.floor(Math.random() * Math.floor(50)), Math.floor(Math.random() * Math.floor(50)), Math.floor(Math.random() * Math.floor(50)), Math.floor(Math.random() * Math.floor(50)), Math.floor(Math.random() * Math.floor(50))]
 }];
 var DisplayItem = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject());
 
@@ -65395,7 +65395,7 @@ __webpack_require__.r(__webpack_exports__);
       }
     },
     xAxis: {
-      type: 'datetime'
+      categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
     },
     legend: {
       layout: 'vertical',
@@ -65406,8 +65406,8 @@ __webpack_require__.r(__webpack_exports__);
       series: {
         label: {
           connectorAllowed: false
-        },
-        pointStart: 2018
+        } // pointStart: 'January'
+
       }
     },
     series: historical,
@@ -65455,13 +65455,13 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
-  colors: ['#61d936', '#552ccb', '#1163c9', '#04a1ee', '#08c6e0', '#146b9e', '#f376c1', '#1b2839'],
+  colors: ['#007BFF', '#DC3446', '#1163c9', '#04a1ee', '#08c6e0', '#146b9e', '#f376c1', '#1b2839'],
   chart: {
-    backgroundColor: '#061a44',
+    backgroundColor: '#455A64',
     borderColor: '#000000',
     borderWidth: 0,
     className: 'dark-container',
-    plotBackgroundColor: '#061a44',
+    plotBackgroundColor: '#455A64',
     plotBorderColor: '#CCCCCC',
     plotBorderWidth: 0
   },

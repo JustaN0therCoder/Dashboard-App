@@ -9,11 +9,11 @@ ReactHighCharts.Highcharts.setOptions(LineChartsTheme);
 
 var dummy = [{
     name: 'Opens',
-    data: [Math.floor(Math.random() * Math.floor(100)), Math.floor(Math.random() * Math.floor(100)), Math.floor(Math.random() * Math.floor(100)), Math.floor(Math.random() * Math.floor(100)), Math.floor(Math.random() * Math.floor(100)), Math.floor(Math.random() * Math.floor(100)), Math.floor(Math.random() * Math.floor(100)), Math.floor(Math.random() * Math.floor(100))]
+    data: [Math.floor(Math.random() * Math.floor(100)), Math.floor(Math.random() * Math.floor(100)), Math.floor(Math.random() * Math.floor(100)), Math.floor(Math.random() * Math.floor(100)), Math.floor(Math.random() * Math.floor(100)), Math.floor(Math.random() * Math.floor(100)), Math.floor(Math.random() * Math.floor(100)), Math.floor(Math.random() * Math.floor(100)),Math.floor(Math.random() * Math.floor(100)),Math.floor(Math.random() * Math.floor(100)),Math.floor(Math.random() * Math.floor(100)),Math.floor(Math.random() * Math.floor(100))]
   },
   {
       name: 'Clicks',
-      data: [Math.floor(Math.random() * Math.floor(50)), Math.floor(Math.random() * Math.floor(50)), Math.floor(Math.random() * Math.floor(50)), Math.floor(Math.random() * Math.floor(50)), Math.floor(Math.random() * Math.floor(50)), Math.floor(Math.random() * Math.floor(50)), Math.floor(Math.random() * Math.floor(50)), Math.floor(Math.random() * Math.floor(50))]
+      data: [Math.floor(Math.random() * Math.floor(50)), Math.floor(Math.random() * Math.floor(50)), Math.floor(Math.random() * Math.floor(50)), Math.floor(Math.random() * Math.floor(50)), Math.floor(Math.random() * Math.floor(50)), Math.floor(Math.random() * Math.floor(50)), Math.floor(Math.random() * Math.floor(50)), Math.floor(Math.random() * Math.floor(50)),Math.floor(Math.random() * Math.floor(50)),Math.floor(Math.random() * Math.floor(50)),Math.floor(Math.random() * Math.floor(50)),Math.floor(Math.random() * Math.floor(50))]
     }]
 
 const DisplayItem = styled.div`

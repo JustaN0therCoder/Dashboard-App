@@ -10,7 +10,7 @@ export default function(historical){
         text: 'Email Campaign'
       }
     },
-    xAxis:{type: 'datetime'},
+    xAxis:{categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']},
     legend: {
       layout: 'vertical',
       align: 'right',
@@ -22,7 +22,7 @@ export default function(historical){
         label: {
           connectorAllowed: false
         },
-        pointStart: 2018
+        // pointStart: 'January'
       }
     },
 
