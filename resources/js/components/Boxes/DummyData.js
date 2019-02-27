@@ -43,3 +43,37 @@ export const dummyBar = [{
         Math.floor(Math.random() * Math.floor(500))],
       stack: 'Email'
     }]
+
+export const dummyArea = [{
+  name: 'New Users',
+  data: [
+    Math.floor(Math.random() * Math.floor(50)),
+    Math.floor(Math.random() * Math.floor(50)),
+    Math.floor(Math.random() * Math.floor(50)),
+    Math.floor(Math.random() * Math.floor(50)),
+    Math.floor(Math.random() * Math.floor(50)),
+    Math.floor(Math.random() * Math.floor(50)),
+    Math.floor(Math.random() * Math.floor(50)),
+    Math.floor(Math.random() * Math.floor(50)),
+    Math.floor(Math.random() * Math.floor(50)),
+    Math.floor(Math.random() * Math.floor(50)),
+    Math.floor(Math.random() * Math.floor(50)),
+    Math.floor(Math.random() * Math.floor(50))
+  ]
+}, {
+  name: 'Returning users',
+  data: [
+      Math.floor(Math.random() * Math.floor(50)),
+      Math.floor(Math.random() * Math.floor(50)),
+      Math.floor(Math.random() * Math.floor(50)),
+      Math.floor(Math.random() * Math.floor(50)),
+      Math.floor(Math.random() * Math.floor(50)),
+      Math.floor(Math.random() * Math.floor(50)),
+      Math.floor(Math.random() * Math.floor(50)),
+      Math.floor(Math.random() * Math.floor(50)),
+      Math.floor(Math.random() * Math.floor(50)),
+      Math.floor(Math.random() * Math.floor(50)),
+      Math.floor(Math.random() * Math.floor(50)),
+      Math.floor(Math.random() * Math.floor(50))
+  ]
+}]

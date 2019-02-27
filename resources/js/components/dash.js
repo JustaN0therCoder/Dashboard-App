@@ -48,7 +48,7 @@ export default class Dash extends Component {
                   </div>
                   <div className="row">
                     <div className="col">
-                    <ContentBox type="bar"></ContentBox>
+                    <ContentBox type="area"></ContentBox>
                     </div>
                     <div className="col">
                       <ContentBox type="halfPie"></ContentBox>

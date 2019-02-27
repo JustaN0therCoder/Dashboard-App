@@ -65302,7 +65302,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Charts_LineTheme__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../Charts/LineTheme */ "./resources/js/components/Charts/LineTheme.js");
 /* harmony import */ var _Charts_barGraph__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../Charts/barGraph */ "./resources/js/components/Charts/barGraph.js");
 /* harmony import */ var _Charts_HalfPie__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../Charts/HalfPie */ "./resources/js/components/Charts/HalfPie.js");
-/* harmony import */ var _Boxes_DummyData__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../Boxes/DummyData */ "./resources/js/components/Boxes/DummyData.js");
+/* harmony import */ var _Charts_Area__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../Charts/Area */ "./resources/js/components/Charts/Area.js");
+/* harmony import */ var _Boxes_SettingsBox__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../Boxes/SettingsBox */ "./resources/js/components/Boxes/SettingsBox.js");
+/* harmony import */ var _Boxes_DummyData__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../Boxes/DummyData */ "./resources/js/components/Boxes/DummyData.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -65321,8 +65323,18 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
+function _templateObject3() {
+  var data = _taggedTemplateLiteral(["\n  position: absolute;\n  height: 200px;\n  width: 100px;\n  top: 10px;\n  right: 10px;\n  z-index: 999;\n  background-color: #546E7A;\n"]);
+
+  _templateObject3 = function _templateObject3() {
+    return data;
+  };
+
+  return data;
+}
+
 function _templateObject2() {
-  var data = _taggedTemplateLiteral(["\n  position: absolute;\n  top: 10px;\n  right: 10px;\n  z-index: 999;\n  height: 10px;\n  background-color: red;\n  width: 10px;\n"]);
+  var data = _taggedTemplateLiteral(["\n  position: absolute;\n  top: 10px;\n  right: 10px;\n  z-index: 999;\n  height: 20px;\n  width: 20px;\n  background-image: url('/imgs/gears.png');\n  background-size: cover;\n  background-repeat: no-repeat;\n  cursor: pointer;\n"]);
 
   _templateObject2 = function _templateObject2() {
     return data;
@@ -65352,9 +65364,12 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 
+
+
 react_highcharts__WEBPACK_IMPORTED_MODULE_3___default.a.Highcharts.setOptions(_Charts_LineTheme__WEBPACK_IMPORTED_MODULE_5__["default"]);
 var DisplayItem = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject());
 var SettingsIcon = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject2());
+var SettingsPopup = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject3());
 
 var ContentBox =
 /*#__PURE__*/
@@ -65368,35 +65383,101 @@ function (_Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(ContentBox).call(this, props));
     _this.state = {
-      chartType: {
-        bar: Object(_Charts_barGraph__WEBPACK_IMPORTED_MODULE_6__["default"])(_Boxes_DummyData__WEBPACK_IMPORTED_MODULE_8__["dummyBar"]),
-        line: Object(_Charts_Line__WEBPACK_IMPORTED_MODULE_4__["default"])(_Boxes_DummyData__WEBPACK_IMPORTED_MODULE_8__["dummyLine"]),
-        halfPie: Object(_Charts_HalfPie__WEBPACK_IMPORTED_MODULE_7__["default"])()
-      }
+      showSettings: false,
+      displayType: Object(_Charts_barGraph__WEBPACK_IMPORTED_MODULE_6__["default"])(_Boxes_DummyData__WEBPACK_IMPORTED_MODULE_10__["dummyBar"]),
+      currentValue: 'empty'
     };
     return _this;
   }
 
   _createClass(ContentBox, [{
-    key: "render",
-    value: function render() {
+    key: "toggleSettings",
+    value: function toggleSettings() {
+      console.log('hello World');
+      this.setState({
+        showSettings: !this.state.showSettings
+      });
+      console.log(this.state.showSettings);
+    }
+  }, {
+    key: "updateChartType",
+    value: function updateChartType(e) {
+      console.log('chart Updated!');
+
+      if (e.target.value === 'Half') {
+        this.setState({
+          displayType: Object(_Charts_HalfPie__WEBPACK_IMPORTED_MODULE_7__["default"])(),
+          currentValue: 'Half'
+        });
+      } else if (e.target.value === 'Line') {
+        this.setState({
+          displayType: Object(_Charts_Line__WEBPACK_IMPORTED_MODULE_4__["default"])(_Boxes_DummyData__WEBPACK_IMPORTED_MODULE_10__["dummyLine"]),
+          currentValue: 'Line'
+        });
+      } else if (e.target.value === 'Bar') {
+        this.setState({
+          displayType: Object(_Charts_barGraph__WEBPACK_IMPORTED_MODULE_6__["default"])(_Boxes_DummyData__WEBPACK_IMPORTED_MODULE_10__["dummyBar"]),
+          currentValue: "Bar"
+        });
+      } else if (e.target.value === 'Area') {
+        this.setState({
+          displayType: Object(_Charts_Area__WEBPACK_IMPORTED_MODULE_8__["default"])(_Boxes_DummyData__WEBPACK_IMPORTED_MODULE_10__["dummyArea"]),
+          currentValue: 'Area'
+        });
+      }
+
+      console.log(this.state.displayType);
+    }
+  }, {
+    key: "componentDidMount",
+    value: function componentDidMount() {
       var chartType;
 
       if (this.props.type === "bar") {
-        chartType = this.state.chartType.bar;
+        this.setState({
+          displayType: Object(_Charts_barGraph__WEBPACK_IMPORTED_MODULE_6__["default"])(_Boxes_DummyData__WEBPACK_IMPORTED_MODULE_10__["dummyBar"]),
+          currentValue: "Bar"
+        });
       } else if (this.props.type === "line") {
-        chartType = this.state.chartType.line;
+        this.setState({
+          displayType: Object(_Charts_Line__WEBPACK_IMPORTED_MODULE_4__["default"])(_Boxes_DummyData__WEBPACK_IMPORTED_MODULE_10__["dummyLine"]),
+          currentValue: 'Line'
+        });
       } else if (this.props.type === "halfPie") {
-        chartType = this.state.chartType.halfPie;
+        this.setState({
+          displayType: Object(_Charts_HalfPie__WEBPACK_IMPORTED_MODULE_7__["default"])(),
+          currentValue: 'Half'
+        });
+      } else if (this.props.type === "area") {
+        this.setState({
+          displayType: Object(_Charts_Area__WEBPACK_IMPORTED_MODULE_8__["default"])(_Boxes_DummyData__WEBPACK_IMPORTED_MODULE_10__["dummyArea"]),
+          currentValue: 'Area'
+        });
       } else {
         chartType = 'EMPTY';
       }
-
+    }
+  }, {
+    key: "chartUpdateHandler",
+    value: function chartUpdateHandler(e) {
+      this.setState({
+        displayType: e.target.value
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(DisplayItem, {
         className: "ContentBox"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(SettingsIcon, null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_highcharts__WEBPACK_IMPORTED_MODULE_3___default.a, {
-        config: chartType
-      }));
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(SettingsIcon, {
+        onClick: this.toggleSettings.bind(this)
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_highcharts__WEBPACK_IMPORTED_MODULE_3___default.a, {
+        config: this.state.displayType
+      }), this.state.showSettings ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Boxes_SettingsBox__WEBPACK_IMPORTED_MODULE_9__["default"], {
+        close: this.toggleSettings.bind(this),
+        update: this.updateChartType.bind(this),
+        current: this.state.currentValue
+      }) : null);
     }
   }]);
 
@@ -65724,13 +65805,14 @@ function (_Component) {
 /*!****************************************************!*\
   !*** ./resources/js/components/Boxes/DummyData.js ***!
   \****************************************************/
-/*! exports provided: dummyLine, dummyBar */
+/*! exports provided: dummyLine, dummyBar, dummyArea */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "dummyLine", function() { return dummyLine; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "dummyBar", function() { return dummyBar; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "dummyArea", function() { return dummyArea; });
 var dummyLine = [{
   name: 'Form 1',
   data: [Math.floor(Math.random() * Math.floor(100)), Math.floor(Math.random() * Math.floor(100)), Math.floor(Math.random() * Math.floor(100)), Math.floor(Math.random() * Math.floor(100)), Math.floor(Math.random() * Math.floor(100)), Math.floor(Math.random() * Math.floor(100)), Math.floor(Math.random() * Math.floor(100)), Math.floor(Math.random() * Math.floor(100)), Math.floor(Math.random() * Math.floor(100)), Math.floor(Math.random() * Math.floor(100)), Math.floor(Math.random() * Math.floor(100)), Math.floor(Math.random() * Math.floor(100))]
@@ -65760,6 +65842,163 @@ var dummyBar = [{
   data: [Math.floor(Math.random() * Math.floor(500)), Math.floor(Math.random() * Math.floor(500)), Math.floor(Math.random() * Math.floor(500)), Math.floor(Math.random() * Math.floor(500)), Math.floor(Math.random() * Math.floor(500))],
   stack: 'Email'
 }];
+var dummyArea = [{
+  name: 'New Users',
+  data: [Math.floor(Math.random() * Math.floor(50)), Math.floor(Math.random() * Math.floor(50)), Math.floor(Math.random() * Math.floor(50)), Math.floor(Math.random() * Math.floor(50)), Math.floor(Math.random() * Math.floor(50)), Math.floor(Math.random() * Math.floor(50)), Math.floor(Math.random() * Math.floor(50)), Math.floor(Math.random() * Math.floor(50)), Math.floor(Math.random() * Math.floor(50)), Math.floor(Math.random() * Math.floor(50)), Math.floor(Math.random() * Math.floor(50)), Math.floor(Math.random() * Math.floor(50))]
+}, {
+  name: 'Returning users',
+  data: [Math.floor(Math.random() * Math.floor(50)), Math.floor(Math.random() * Math.floor(50)), Math.floor(Math.random() * Math.floor(50)), Math.floor(Math.random() * Math.floor(50)), Math.floor(Math.random() * Math.floor(50)), Math.floor(Math.random() * Math.floor(50)), Math.floor(Math.random() * Math.floor(50)), Math.floor(Math.random() * Math.floor(50)), Math.floor(Math.random() * Math.floor(50)), Math.floor(Math.random() * Math.floor(50)), Math.floor(Math.random() * Math.floor(50)), Math.floor(Math.random() * Math.floor(50))]
+}];
+
+/***/ }),
+
+/***/ "./resources/js/components/Boxes/SettingsBox.js":
+/*!******************************************************!*\
+  !*** ./resources/js/components/Boxes/SettingsBox.js ***!
+  \******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return SettingsBox; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _templateObject() {
+  var data = _taggedTemplateLiteral(["\nposition: absolute;\nheight: 200px;\nwidth: 100px;\ntop: 10px;\nright: 10px;\nz-index: 999;\nbackground-color: #263238;\ndisplay: flex;\nflex-direction: column;\njustify-content: flex-end;\nalign-items: center;\npadding: 10px;\nbox-sizing: border-box;\n"]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+
+
+
+var Settings = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject());
+
+var SettingsBox =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(SettingsBox, _Component);
+
+  function SettingsBox() {
+    _classCallCheck(this, SettingsBox);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(SettingsBox).apply(this, arguments));
+  }
+
+  _createClass(SettingsBox, [{
+    key: "render",
+    value: function render() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Settings, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+        onChange: this.props.update,
+        value: this.props.current
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "Area"
+      }, "Area"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "Half"
+      }, "Half Pie"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "Line"
+      }, "Line"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "Bar"
+      }, "Bar")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: this.props.close
+      }, "Close"));
+    }
+  }]);
+
+  return SettingsBox;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/Charts/Area.js":
+/*!************************************************!*\
+  !*** ./resources/js/components/Charts/Area.js ***!
+  \************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (function (historical) {
+  return {
+    chart: {
+      type: 'area'
+    },
+    title: {
+      text: 'Page users'
+    },
+    subtitle: {
+      text: ''
+    },
+    xAxis: {
+      allowDecimals: false,
+      labels: {
+        formatter: function formatter() {
+          return this.value; // clean, unformatted number for year
+        }
+      }
+    },
+    yAxis: {
+      title: {
+        text: ''
+      },
+      labels: {
+        formatter: function formatter() {
+          return this.value;
+        }
+      }
+    },
+    tooltip: {
+      pointFormat: '{series.name} {point.y:,.0f}'
+    },
+    plotOptions: {
+      area: {
+        pointStart: 1,
+        marker: {
+          enabled: false,
+          symbol: 'circle',
+          radius: 0,
+          states: {
+            hover: {
+              enabled: true
+            }
+          }
+        }
+      }
+    },
+    series: historical
+  };
+});
 
 /***/ }),
 
@@ -66310,7 +66549,7 @@ function (_Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Boxes_Boxes_js__WEBPACK_IMPORTED_MODULE_3__["default"], {
-        type: "bar"
+        type: "area"
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Boxes_Boxes_js__WEBPACK_IMPORTED_MODULE_3__["default"], {
