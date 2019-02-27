@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import styled, {css} from 'styled-components';
 import ContentBox from './Boxes/Boxes.js';
+import ContentBoxBarGraph from './Boxes/BoxesBarGraph.js';
+import ContentBoxHalfPie from './Boxes/BoxesHalfPie.js';
 
 const MainContainer = styled.div`
   width: 100vw;
@@ -23,11 +25,19 @@ const DashContianer = styled.div`
 export default class Dash extends Component {
     render() {
         return (
-            <div className="container">
+            <div >
             <MainContainer>
               <Sidebar></Sidebar>
-              <DashContianer>
-                <ContentBox></ContentBox>
+              <DashContianer className="container-fluid">
+                <div className="row justify-content-md-center">
+                  <div className="col-2"></div>
+                  <ContentBox className="col-8"></ContentBox>
+                  <div className="col-2"></div>
+                </div>
+                <div className="row">
+                  <ContentBoxBarGraph></ContentBoxBarGraph>
+                  <ContentBoxHalfPie></ContentBoxHalfPie>
+                </div>
               </DashContianer>
             </MainContainer>
 

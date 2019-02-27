@@ -65300,6 +65300,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_highcharts__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_highcharts__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _Charts_Line__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../Charts/Line */ "./resources/js/components/Charts/Line.js");
 /* harmony import */ var _Charts_LineTheme__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../Charts/LineTheme */ "./resources/js/components/Charts/LineTheme.js");
+/* harmony import */ var _Charts_barGraph__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../Charts/barGraph */ "./resources/js/components/Charts/barGraph.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -65318,8 +65319,233 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
+function _templateObject2() {
+  var data = _taggedTemplateLiteral(["\n  position: absolute;\n  top: 10px;\n  right: 10px;\n  z-index: 999;\n  height: 10px;\n  background-color: red;\n  width: 10px;\n"]);
+
+  _templateObject2 = function _templateObject2() {
+    return data;
+  };
+
+  return data;
+}
+
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n  height: 300px;\n  width: 1400px;\n  background-color: #455A64;\n  border-radius: 5px;\n"]);
+  var data = _taggedTemplateLiteral(["\n  height: 400px;\n  width: 100%;\n  background-color: #455A64;\n  border-radius: 5px;\n  overflow: hidden;\n  position: relative;\n  margin: 10px;\n"]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+
+
+
+
+
+
+
+react_highcharts__WEBPACK_IMPORTED_MODULE_3___default.a.Highcharts.setOptions(_Charts_LineTheme__WEBPACK_IMPORTED_MODULE_5__["default"]);
+var dummy = [{
+  name: 'Opens',
+  data: [Math.floor(Math.random() * Math.floor(100)), Math.floor(Math.random() * Math.floor(100)), Math.floor(Math.random() * Math.floor(100)), Math.floor(Math.random() * Math.floor(100)), Math.floor(Math.random() * Math.floor(100)), Math.floor(Math.random() * Math.floor(100)), Math.floor(Math.random() * Math.floor(100)), Math.floor(Math.random() * Math.floor(100)), Math.floor(Math.random() * Math.floor(100)), Math.floor(Math.random() * Math.floor(100)), Math.floor(Math.random() * Math.floor(100)), Math.floor(Math.random() * Math.floor(100))]
+}, {
+  name: 'Clicks',
+  data: [Math.floor(Math.random() * Math.floor(50)), Math.floor(Math.random() * Math.floor(50)), Math.floor(Math.random() * Math.floor(50)), Math.floor(Math.random() * Math.floor(50)), Math.floor(Math.random() * Math.floor(50)), Math.floor(Math.random() * Math.floor(50)), Math.floor(Math.random() * Math.floor(50)), Math.floor(Math.random() * Math.floor(50)), Math.floor(Math.random() * Math.floor(50)), Math.floor(Math.random() * Math.floor(50)), Math.floor(Math.random() * Math.floor(50)), Math.floor(Math.random() * Math.floor(50))]
+}];
+var DisplayItem = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject());
+var SettingsIcon = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject2());
+
+var ContentBox =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(ContentBox, _Component);
+
+  function ContentBox() {
+    _classCallCheck(this, ContentBox);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(ContentBox).apply(this, arguments));
+  }
+
+  _createClass(ContentBox, [{
+    key: "render",
+    value: function render() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(DisplayItem, {
+        className: "ContentBox"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(SettingsIcon, null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_highcharts__WEBPACK_IMPORTED_MODULE_3___default.a, {
+        config: Object(_Charts_Line__WEBPACK_IMPORTED_MODULE_4__["default"])(dummy)
+      }));
+    }
+  }]);
+
+  return ContentBox;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/Boxes/BoxesBarGraph.js":
+/*!********************************************************!*\
+  !*** ./resources/js/components/Boxes/BoxesBarGraph.js ***!
+  \********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return ContentBoxBarGraph; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+/* harmony import */ var react_highcharts__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-highcharts */ "./node_modules/react-highcharts/dist/ReactHighcharts.js");
+/* harmony import */ var react_highcharts__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_highcharts__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _Charts_Line__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../Charts/Line */ "./resources/js/components/Charts/Line.js");
+/* harmony import */ var _Charts_LineTheme__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../Charts/LineTheme */ "./resources/js/components/Charts/LineTheme.js");
+/* harmony import */ var _Charts_barGraph__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../Charts/barGraph */ "./resources/js/components/Charts/barGraph.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _templateObject2() {
+  var data = _taggedTemplateLiteral(["\n  position: absolute;\n  top: 10px;\n  right: 10px;\n  z-index: 999;\n  height: 10px;\n  background-color: red;\n  width: 10px;\n"]);
+
+  _templateObject2 = function _templateObject2() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject() {
+  var data = _taggedTemplateLiteral(["\n  height: 400px;\n  width: 600px;\n  background-color: #455A64;\n  border-radius: 5px;\n  overflow: hidden;\n  position: relative;\n  margin: 10px;\n"]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+
+
+
+
+
+
+
+react_highcharts__WEBPACK_IMPORTED_MODULE_3___default.a.Highcharts.setOptions(_Charts_LineTheme__WEBPACK_IMPORTED_MODULE_5__["default"]);
+var dummy = [{
+  name: 'Reads',
+  data: [Math.floor(Math.random() * Math.floor(100)), Math.floor(Math.random() * Math.floor(100)), Math.floor(Math.random() * Math.floor(100)), Math.floor(Math.random() * Math.floor(100)), Math.floor(Math.random() * Math.floor(100))],
+  stack: 'Email'
+}, {
+  name: 'Clicks',
+  data: [Math.floor(Math.random() * Math.floor(50)), Math.floor(Math.random() * Math.floor(50)), Math.floor(Math.random() * Math.floor(50)), Math.floor(Math.random() * Math.floor(50)), Math.floor(Math.random() * Math.floor(50))],
+  stack: 'Email'
+}];
+var DisplayItem = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject());
+var SettingsIcon = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject2());
+
+var ContentBoxBarGraph =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(ContentBoxBarGraph, _Component);
+
+  function ContentBoxBarGraph() {
+    _classCallCheck(this, ContentBoxBarGraph);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(ContentBoxBarGraph).apply(this, arguments));
+  }
+
+  _createClass(ContentBoxBarGraph, [{
+    key: "render",
+    value: function render() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(DisplayItem, {
+        className: "ContentBox"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(SettingsIcon, null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_highcharts__WEBPACK_IMPORTED_MODULE_3___default.a, {
+        config: Object(_Charts_barGraph__WEBPACK_IMPORTED_MODULE_6__["default"])(dummy)
+      }));
+    }
+  }]);
+
+  return ContentBoxBarGraph;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/Boxes/BoxesHalfPie.js":
+/*!*******************************************************!*\
+  !*** ./resources/js/components/Boxes/BoxesHalfPie.js ***!
+  \*******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return ContentHalfPie; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+/* harmony import */ var react_highcharts__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-highcharts */ "./node_modules/react-highcharts/dist/ReactHighcharts.js");
+/* harmony import */ var react_highcharts__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_highcharts__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _Charts_HalfPie__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../Charts/HalfPie */ "./resources/js/components/Charts/HalfPie.js");
+/* harmony import */ var _Charts_LineTheme__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../Charts/LineTheme */ "./resources/js/components/Charts/LineTheme.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _templateObject2() {
+  var data = _taggedTemplateLiteral(["\n  position: absolute;\n  top: 10px;\n  right: 10px;\n  z-index: 999;\n  height: 10px;\n  background-color: red;\n  width: 10px;\n"]);
+
+  _templateObject2 = function _templateObject2() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject() {
+  var data = _taggedTemplateLiteral(["\n  height: 400px;\n  width: 600px;\n  background-color: #455A64;\n  border-radius: 5px;\n  overflow: hidden;\n  position: relative;\n  margin: 10px;\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -65338,40 +65564,101 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 react_highcharts__WEBPACK_IMPORTED_MODULE_3___default.a.Highcharts.setOptions(_Charts_LineTheme__WEBPACK_IMPORTED_MODULE_5__["default"]);
 var dummy = [{
-  name: 'Opens',
-  data: [Math.floor(Math.random() * Math.floor(100)), Math.floor(Math.random() * Math.floor(100)), Math.floor(Math.random() * Math.floor(100)), Math.floor(Math.random() * Math.floor(100)), Math.floor(Math.random() * Math.floor(100)), Math.floor(Math.random() * Math.floor(100)), Math.floor(Math.random() * Math.floor(100)), Math.floor(Math.random() * Math.floor(100)), Math.floor(Math.random() * Math.floor(100)), Math.floor(Math.random() * Math.floor(100)), Math.floor(Math.random() * Math.floor(100)), Math.floor(Math.random() * Math.floor(100))]
+  name: 'Reads',
+  data: [Math.floor(Math.random() * Math.floor(100)), Math.floor(Math.random() * Math.floor(100)), Math.floor(Math.random() * Math.floor(100)), Math.floor(Math.random() * Math.floor(100)), Math.floor(Math.random() * Math.floor(100))],
+  stack: 'Email'
 }, {
   name: 'Clicks',
-  data: [Math.floor(Math.random() * Math.floor(50)), Math.floor(Math.random() * Math.floor(50)), Math.floor(Math.random() * Math.floor(50)), Math.floor(Math.random() * Math.floor(50)), Math.floor(Math.random() * Math.floor(50)), Math.floor(Math.random() * Math.floor(50)), Math.floor(Math.random() * Math.floor(50)), Math.floor(Math.random() * Math.floor(50)), Math.floor(Math.random() * Math.floor(50)), Math.floor(Math.random() * Math.floor(50)), Math.floor(Math.random() * Math.floor(50)), Math.floor(Math.random() * Math.floor(50))]
+  data: [Math.floor(Math.random() * Math.floor(50)), Math.floor(Math.random() * Math.floor(50)), Math.floor(Math.random() * Math.floor(50)), Math.floor(Math.random() * Math.floor(50)), Math.floor(Math.random() * Math.floor(50))],
+  stack: 'Email'
 }];
 var DisplayItem = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject());
+var SettingsIcon = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject2());
 
-var ContentBox =
+var ContentHalfPie =
 /*#__PURE__*/
 function (_Component) {
-  _inherits(ContentBox, _Component);
+  _inherits(ContentHalfPie, _Component);
 
-  function ContentBox() {
-    _classCallCheck(this, ContentBox);
+  function ContentHalfPie() {
+    _classCallCheck(this, ContentHalfPie);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(ContentBox).apply(this, arguments));
+    return _possibleConstructorReturn(this, _getPrototypeOf(ContentHalfPie).apply(this, arguments));
   }
 
-  _createClass(ContentBox, [{
+  _createClass(ContentHalfPie, [{
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(DisplayItem, {
         className: "ContentBox"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_highcharts__WEBPACK_IMPORTED_MODULE_3___default.a, {
-        config: Object(_Charts_Line__WEBPACK_IMPORTED_MODULE_4__["default"])(dummy)
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(SettingsIcon, null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_highcharts__WEBPACK_IMPORTED_MODULE_3___default.a, {
+        config: Object(_Charts_HalfPie__WEBPACK_IMPORTED_MODULE_4__["default"])()
       }));
     }
   }]);
 
-  return ContentBox;
+  return ContentHalfPie;
 }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
 
+
+/***/ }),
+
+/***/ "./resources/js/components/Charts/HalfPie.js":
+/*!***************************************************!*\
+  !*** ./resources/js/components/Charts/HalfPie.js ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (function (historical) {
+  return {
+    chart: {
+      plotBackgroundColor: null,
+      plotBorderWidth: 0,
+      plotShadow: false
+    },
+    title: {
+      text: 'Monthly<br>Browser<br>Shares',
+      align: 'center',
+      verticalAlign: 'middle',
+      y: 40
+    },
+    tooltip: {
+      pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+    },
+    plotOptions: {
+      pie: {
+        dataLabels: {
+          enabled: true,
+          distance: -50,
+          style: {
+            fontWeight: 'bold',
+            color: 'white'
+          }
+        },
+        startAngle: -90,
+        endAngle: 90,
+        center: ['50%', '75%'],
+        size: '110%'
+      }
+    },
+    series: [{
+      type: 'pie',
+      name: 'Browser share',
+      innerSize: '50%',
+      data: [['Chrome', 58.9], ['Firefox', 13.29], ['Internet Explorer', 13], ['Edge', 3.78], ['Safari', 3.42], {
+        name: 'Other',
+        y: 7.61,
+        dataLabels: {
+          enabled: false
+        }
+      }]
+    }]
+  };
+});
 
 /***/ }),
 
@@ -65703,6 +65990,49 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/Charts/barGraph.js":
+/*!****************************************************!*\
+  !*** ./resources/js/components/Charts/barGraph.js ***!
+  \****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (function (historical) {
+  return {
+    chart: {
+      type: 'column'
+    },
+    title: {
+      text: 'Total Email Stats'
+    },
+    xAxis: {
+      categories: ['Jan', 'Feb', 'March', 'April', 'May']
+    },
+    yAxis: {
+      allowDecimals: false,
+      min: 0,
+      title: {
+        text: 'Number of fruits'
+      }
+    },
+    tooltip: {
+      formatter: function formatter() {
+        return '<b>' + this.x + '</b><br/>' + this.series.name + ': ' + this.y + '<br/>' + 'Total: ' + this.point.stackTotal;
+      }
+    },
+    plotOptions: {
+      column: {
+        stacking: 'normal'
+      }
+    },
+    series: historical
+  };
+});
+
+/***/ }),
+
 /***/ "./resources/js/components/Dash.js":
 /*!*****************************************!*\
   !*** ./resources/js/components/Dash.js ***!
@@ -65719,6 +66049,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
 /* harmony import */ var _Boxes_Boxes_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Boxes/Boxes.js */ "./resources/js/components/Boxes/Boxes.js");
+/* harmony import */ var _Boxes_BoxesBarGraph_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Boxes/BoxesBarGraph.js */ "./resources/js/components/Boxes/BoxesBarGraph.js");
+/* harmony import */ var _Boxes_BoxesHalfPie_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Boxes/BoxesHalfPie.js */ "./resources/js/components/Boxes/BoxesHalfPie.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -65773,6 +66105,8 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 
+
+
 var MainContainer = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject());
 var Sidebar = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject2());
 var DashContianer = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject3());
@@ -65791,9 +66125,19 @@ function (_Component) {
   _createClass(Dash, [{
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "container"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(MainContainer, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Sidebar, null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(DashContianer, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Boxes_Boxes_js__WEBPACK_IMPORTED_MODULE_3__["default"], null))));
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(MainContainer, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Sidebar, null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(DashContianer, {
+        className: "container-fluid"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "row justify-content-md-center"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-2"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Boxes_Boxes_js__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        className: "col-8"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-2"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "row"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Boxes_BoxesBarGraph_js__WEBPACK_IMPORTED_MODULE_4__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Boxes_BoxesHalfPie_js__WEBPACK_IMPORTED_MODULE_5__["default"], null)))));
     }
   }]);
 
