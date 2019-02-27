@@ -5,11 +5,6 @@ import ReactHighCharts from 'react-highcharts';
 import lineChartsConfig from '../Charts/Line';
 import LineChartsTheme from '../Charts/LineTheme';
 import barChartsConfig from '../Charts/barGraph';
-import halfPieChartsConfig from '../Charts/HalfPie';
-import {dummyLine, dummyBar} from '../Boxes/DummyData';
-
-ReactHighCharts.Highcharts.setOptions(LineChartsTheme);
-
 
 const DisplayItem = styled.div`
   height: 400px;
@@ -30,36 +25,11 @@ const SettingsIcon = styled.div`
   width: 10px;
 `
 
-
 export default class ContentBox extends Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      chartType: {
-        bar: barChartsConfig(dummyBar),
-        line: lineChartsConfig(dummyLine),
-        halfPie: halfPieChartsConfig(),
-      }
-    }
-  }
-
     render() {
-      let chartType;
-
-      if (this.props.type === "bar") {
-        chartType = this.state.chartType.bar
-      } else if (this.props.type === "line") {
-        chartType = this.state.chartType.line
-      } else if (this.props.type === "halfPie") {
-        chartType = this.state.chartType.halfPie
-      } else {
-        chartType = 'EMPTY';
-      }
-
         return (
             <DisplayItem className="ContentBox">
               <SettingsIcon></SettingsIcon>
-              <ReactHighCharts config={chartType}/>
             </DisplayItem>
         );
     }

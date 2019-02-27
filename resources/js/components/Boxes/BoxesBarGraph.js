@@ -28,7 +28,7 @@ var dummy = [{
 
 const DisplayItem = styled.div`
   height: 400px;
-  width: 600px;
+  width: auto;
   background-color: #455A64;
   border-radius: 5px;
   overflow: hidden;
