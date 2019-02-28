@@ -65398,6 +65398,7 @@ function (_Component) {
         showSettings: !this.state.showSettings
       });
       console.log(this.state.showSettings);
+      console.log(this.props.id);
     }
   }, {
     key: "updateChartType",
@@ -65432,23 +65433,24 @@ function (_Component) {
     key: "componentDidMount",
     value: function componentDidMount() {
       var chartType;
+      console.log('type: ' + this.props.type);
 
-      if (this.props.type === "bar") {
+      if (this.props.type === 1) {
         this.setState({
           displayType: Object(_Charts_barGraph__WEBPACK_IMPORTED_MODULE_6__["default"])(_Boxes_DummyData__WEBPACK_IMPORTED_MODULE_10__["dummyBar"]),
           currentValue: "Bar"
         });
-      } else if (this.props.type === "line") {
+      } else if (this.props.type === 2) {
         this.setState({
           displayType: Object(_Charts_Line__WEBPACK_IMPORTED_MODULE_4__["default"])(_Boxes_DummyData__WEBPACK_IMPORTED_MODULE_10__["dummyLine"]),
           currentValue: 'Line'
         });
-      } else if (this.props.type === "halfPie") {
+      } else if (this.props.type === 3) {
         this.setState({
           displayType: Object(_Charts_HalfPie__WEBPACK_IMPORTED_MODULE_7__["default"])(),
           currentValue: 'Half'
         });
-      } else if (this.props.type === "area") {
+      } else if (this.props.type === 4) {
         this.setState({
           displayType: Object(_Charts_Area__WEBPACK_IMPORTED_MODULE_8__["default"])(_Boxes_DummyData__WEBPACK_IMPORTED_MODULE_10__["dummyArea"]),
           currentValue: 'Area'
@@ -65867,6 +65869,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -65900,6 +65904,7 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 
+
 var Settings = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject());
 
 var SettingsBox =
@@ -65914,10 +65919,35 @@ function (_Component) {
   }
 
   _createClass(SettingsBox, [{
+    key: "updateChart",
+    value: function updateChart(e) {
+      console.log('howdy world!');
+      var chart, name;
+
+      if (e.target.value === 'Bar') {
+        chart = 1;
+        name = "Bar";
+      } else if (e.target.value === 'Line') {
+        chart = 2;
+        name = "Line";
+      } else if (e.target.value === 'Half') {
+        chart = 3;
+        name = "Half";
+      } else if (e.target.value === 'Area') {
+        chart = 4;
+        name = "Area";
+      }
+
+      axios__WEBPACK_IMPORTED_MODULE_3___default.a.post('/api/chart', {
+        chart: chart,
+        name: name
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Settings, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
-        onChange: this.props.update,
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Settings, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+        onChange: this.updateChart.bind(this),
         value: this.props.current
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "Area"
@@ -65929,7 +65959,7 @@ function (_Component) {
         value: "Bar"
       }, "Bar")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: this.props.close
-      }, "Close"));
+      }, "Close")));
     }
   }]);
 
@@ -66450,6 +66480,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Boxes_BoxesBarGraph_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Boxes/BoxesBarGraph.js */ "./resources/js/components/Boxes/BoxesBarGraph.js");
 /* harmony import */ var _Boxes_BoxesHalfPie_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Boxes/BoxesHalfPie.js */ "./resources/js/components/Boxes/BoxesHalfPie.js");
 /* harmony import */ var _Boxes_BoxesFiller_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Boxes/BoxesFiller.js */ "./resources/js/components/Boxes/BoxesFiller.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_7__);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -66517,6 +66549,7 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 
+
 var MainContainer = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject());
 var Sidebar = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject2());
 var SidebarSpacer = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject3());
@@ -66528,49 +66561,47 @@ function (_Component) {
   _inherits(Dash, _Component);
 
   function Dash() {
+    var _this;
+
     _classCallCheck(this, Dash);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(Dash).apply(this, arguments));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Dash).call(this));
+    _this.state = {
+      charts: []
+    };
+    console.log(_this = _possibleConstructorReturn(this, _getPrototypeOf(Dash).call(this)));
+    return _this;
   }
 
   _createClass(Dash, [{
+    key: "componentWillMount",
+    value: function componentWillMount() {
+      var _this2 = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_7___default.a.get('/api/chart').then(function (response) {
+        _this2.setState({
+          charts: response.data
+        });
+      }).catch(function (errors) {
+        console.log(errors);
+      });
+      console.log();
+    }
+  }, {
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(MainContainer, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Sidebar, null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(SidebarSpacer, null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(DashContianer, {
         className: "container-fluid"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "row"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Boxes_Boxes_js__WEBPACK_IMPORTED_MODULE_3__["default"], {
-        type: "line"
-      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "row"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Boxes_Boxes_js__WEBPACK_IMPORTED_MODULE_3__["default"], {
-        type: "area"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Boxes_Boxes_js__WEBPACK_IMPORTED_MODULE_3__["default"], {
-        type: "halfPie"
-      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "row"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Boxes_Boxes_js__WEBPACK_IMPORTED_MODULE_3__["default"], {
-        type: "bar"
-      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "row"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Boxes_Boxes_js__WEBPACK_IMPORTED_MODULE_3__["default"], {
-        type: "halfPie"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Boxes_Boxes_js__WEBPACK_IMPORTED_MODULE_3__["default"], {
-        type: "bar"
-      }))))));
+      }, this.state.charts.map(function (chart) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "row"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "col"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Boxes_Boxes_js__WEBPACK_IMPORTED_MODULE_3__["default"], {
+          type: chart.type,
+          id: chart.id
+        })));
+      }))));
     }
   }]);
 

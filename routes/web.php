@@ -18,3 +18,7 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 });
+Route::get('/test', function () {
+  $data = DB::table('charts_info')->get();
+    return $data;
+});

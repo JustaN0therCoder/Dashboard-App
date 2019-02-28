@@ -61,7 +61,6 @@ export default class ContentBox extends Component {
       showSettings: !this.state.showSettings
     })
     console.log(this.state.showSettings);
-    console.log(this.props.id);
   }
 
   updateChartType(e) {
@@ -92,23 +91,23 @@ export default class ContentBox extends Component {
 
   componentDidMount() {
     let chartType;
-    console.log('type: '+ this.props.type)
-    if (this.props.type === 1) {
+
+    if (this.props.type === "bar") {
       this.setState({
         displayType: barChartsConfig(dummyBar),
         currentValue: "Bar"
       });
-    } else if (this.props.type === 2) {
+    } else if (this.props.type === "line") {
       this.setState({
         displayType: lineChartsConfig(dummyLine),
         currentValue: 'Line'
       });
-    } else if (this.props.type === 3) {
+    } else if (this.props.type === "halfPie") {
       this.setState({
         displayType: halfPieChartsConfig(),
         currentValue: 'Half'
       });
-    } else if (this.props.type === 4) {
+    } else if (this.props.type === "area") {
       this.setState({
         displayType: areaChartConfig(dummyArea),
         currentValue: 'Area'

@@ -60,14 +60,32 @@ export default class Dash extends Component {
               <Sidebar></Sidebar>
               <SidebarSpacer></SidebarSpacer>
               <DashContianer className="container-fluid">
-                {this.state.charts.map(chart =>
                   <div className="row">
                     <div className="col">
-                      <ContentBox type={chart.type} id={chart.id}></ContentBox>
+                      <ContentBox type=''></ContentBox>
                     </div>
                   </div>
-                )}
-
+                  <div className="row">
+                    <div className="col">
+                    <ContentBox type="area"></ContentBox>
+                    </div>
+                    <div className="col">
+                      <ContentBox type="halfPie"></ContentBox>
+                    </div>
+                  </div>
+                  <div className="row">
+                    <div className="col">
+                      <ContentBox type="bar"></ContentBox>
+                    </div>
+                  </div>
+                  <div className="row">
+                    <div className="col">
+                      <ContentBox type="halfPie"></ContentBox>
+                    </div>
+                    <div className="col">
+                      <ContentBox type="bar"></ContentBox>
+                    </div>
+                  </div>
               </DashContianer>
             </MainContainer>
             </div>
