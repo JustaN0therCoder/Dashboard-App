@@ -66469,7 +66469,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 function _templateObject4() {
-  var data = _taggedTemplateLiteral(["\n  width: calc(100vw - 300px);\n"]);
+  var data = _taggedTemplateLiteral(["\n  width: calc(100vw - 150px);\n"]);
 
   _templateObject4 = function _templateObject4() {
     return data;
@@ -66479,7 +66479,7 @@ function _templateObject4() {
 }
 
 function _templateObject3() {
-  var data = _taggedTemplateLiteral(["\n  width: 300px;\n  background-color: #546E7A;\n  box-shadow: 3px 0px 5px 0px rgba(0,0,0,0.75);\n\n"]);
+  var data = _taggedTemplateLiteral(["\n  width: 150px;\n  background-color: #546E7A;\n  box-shadow: 3px 0px 5px 0px rgba(0,0,0,0.75);\n"]);
 
   _templateObject3 = function _templateObject3() {
     return data;
@@ -66489,7 +66489,7 @@ function _templateObject3() {
 }
 
 function _templateObject2() {
-  var data = _taggedTemplateLiteral(["\n  width: 300px;\n  background-color: #546E7A;\n  box-shadow: 3px 0px 5px 0px rgba(0,0,0,0.75);\n  position: fixed;\n  top: 0;\n  left: 0;\n  height: 100vh;\n"]);
+  var data = _taggedTemplateLiteral(["\n  width: 150px;\n  background-color: #546E7A;\n  box-shadow: 3px 0px 5px 0px rgba(0,0,0,0.75);\n  position: fixed;\n  top: 0;\n  left: 0;\n  height: 100vh;\n"]);
 
   _templateObject2 = function _templateObject2() {
     return data;

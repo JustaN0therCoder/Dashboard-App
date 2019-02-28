@@ -15,7 +15,7 @@ const MainContainer = styled.div`
   justify-content: space-between;
 `
 const Sidebar = styled.div`
-  width: 300px;
+  width: 150px;
   background-color: #546E7A;
   box-shadow: 3px 0px 5px 0px rgba(0,0,0,0.75);
   position: fixed;
@@ -24,13 +24,12 @@ const Sidebar = styled.div`
   height: 100vh;
 `
 const SidebarSpacer = styled.div`
-  width: 300px;
+  width: 150px;
   background-color: #546E7A;
   box-shadow: 3px 0px 5px 0px rgba(0,0,0,0.75);
-
 `
 const DashContianer = styled.div`
-  width: calc(100vw - 300px);
+  width: calc(100vw - 150px);
 `
 
 export default class Dash extends Component {
