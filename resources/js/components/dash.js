@@ -37,9 +37,11 @@ export default class Dash extends Component {
   constructor() {
     super();
     this.state = {
-      charts:[]
+      charts:[],
+      btcPrice: null
     }
     console.log(super());
+
   }
 
   componentWillMount() {
@@ -50,7 +52,14 @@ export default class Dash extends Component {
     }).catch(errors => {
       console.log(errors);
     });
-    console.log();
+    console.log(this.state.charts);
+    axios.get('/api/btcPrice').then(response => {
+      this.setState({
+        btcPrice: response.data.bpi
+      })
+    }).catch(errors => {
+      console.log(errors);
+    });
   }
 
     render() {
@@ -61,9 +70,9 @@ export default class Dash extends Component {
               <SidebarSpacer></SidebarSpacer>
               <DashContianer className="container-fluid">
                 {this.state.charts.map(chart =>
-                  <div className="row">
-                    <div className="col">
-                      <ContentBox type={chart.type} id={chart.id}></ContentBox>
+                  <div key={chart.id} className="row">
+                    <div key={chart.id} className="col">
+                      <ContentBox key={chart.id} type={chart.type} id={chart.id} label={chart.name}></ContentBox>
                     </div>
                   </div>
                 )}

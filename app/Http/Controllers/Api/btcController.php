@@ -2,18 +2,10 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Chart;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "charts";
-
-
-class ChartController extends Controller
+class btcController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -22,9 +14,7 @@ class ChartController extends Controller
      */
     public function index()
     {
-        $xxcharts = Chart::all();
-
-        return response()->json($xxcharts);
+        return json_decode(file_get_contents('https://api.coindesk.com/v1/bpi/historical/close.json'), true);
     }
 
     /**
@@ -45,30 +35,7 @@ class ChartController extends Controller
      */
     public function store(Request $request)
     {
-        // return Chart::create([
-        //   'type' => $request['chart'],
-        //   'Name' => 'TEMP_ITEM_'.$request['name'],
-        //   'Connection' => 3,
-        //   'created_at' => '2019-02-28 15:23:23',
-        //   'updated_at' => '2019-02-28 15:23:23'
-        // ]);
-        // return $request->all();
-        // $conn = new mysqli($servername, $username, $password, $dbname);
-        // if ($conn->connect_error) {
-        //   die("Connection failed: " . $conn->connect_error);
-        // }
-        // $sql = "UPDATE charts SET type=4 WHERE id=16";
-        // if ($conn->query($sql) === TRUE) {
-        //   return ['Message' => "Record updated successfully"];
-        // } else {
-        //   return ['Message' => "Error updating record: ".$conn->error];
-        // }
-        // Chart::table('charts')
-        //               ->where('id', 16)
-        //               ->update(aray('Name', 'Howdy 2: Electric Boogaloo'));
-        $chart = Chart::find($request['id']);
-        $chart->type =$request['chart'];
-        $chart->save();
+        //
     }
 
     /**

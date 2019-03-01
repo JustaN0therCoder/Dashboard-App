@@ -22,30 +22,12 @@ box-sizing: border-box;
 `
 
 export default class SettingsBox extends Component {
-  updateChart(e){
-    console.log('howdy world!');
-    let chart, name ;
-    if(e.target.value === 'Bar') {
-      chart = 1;
-      name = "Bar";
-    } else if(e.target.value === 'Line') {
-      chart = 2;
-      name = "Line";
-    } else if(e.target.value === 'Half') {
-      chart = 3;
-      name = "Half";
-    } else if(e.target.value === 'Area') {
-      chart = 4;
-      name = "Area"
-    }
-    axios.post('/api/chart', {chart, name} );
-  }
 
     render() {
         return (
           <Settings>
             <form>
-              <select onChange={this.updateChart.bind(this)} value={this.props.current}>
+              <select onChange={this.props.updateType.bind(this)} value={this.props.current}>
                 <option value='Area'>Area</option>
                 <option value='Half'>Half Pie</option>
                 <option value='Line'>Line</option>

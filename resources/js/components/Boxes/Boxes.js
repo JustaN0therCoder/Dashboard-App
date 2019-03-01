@@ -51,7 +51,8 @@ export default class ContentBox extends Component {
     this.state = {
       showSettings: false,
       displayType: barChartsConfig(dummyBar),
-      currentValue: 'empty'
+      currentValue: 'empty',
+      rand: 1
     }
   }
 
@@ -64,35 +65,8 @@ export default class ContentBox extends Component {
     console.log(this.props.id);
   }
 
-  updateChartType(e) {
-    console.log('chart Updated!');
-    if(e.target.value === 'Half') {
-      this.setState({
-        displayType: halfPieChartsConfig(),
-        currentValue: 'Half'
-      })
-    } else if(e.target.value === 'Line') {
-        this.setState({
-          displayType: lineChartsConfig(dummyLine),
-          currentValue: 'Line'
-        })
-    } else if(e.target.value === 'Bar') {
-        this.setState({
-          displayType: barChartsConfig(dummyBar),
-          currentValue: "Bar"
-        })
-    } else if(e.target.value === 'Area') {
-        this.setState({
-          displayType: areaChartConfig(dummyArea),
-          currentValue: 'Area'
-        })
-    }
-    console.log(this.state.displayType);
-  }
-
   componentDidMount() {
     let chartType;
-    console.log('type: '+ this.props.type)
     if (this.props.type === 1) {
       this.setState({
         displayType: barChartsConfig(dummyBar),
@@ -100,12 +74,12 @@ export default class ContentBox extends Component {
       });
     } else if (this.props.type === 2) {
       this.setState({
-        displayType: lineChartsConfig(dummyLine),
+        displayType: lineChartsConfig(this.state.lineData),
         currentValue: 'Line'
       });
     } else if (this.props.type === 3) {
       this.setState({
-        displayType: halfPieChartsConfig(),
+        displayType: halfPieChartsConfig('test'),
         currentValue: 'Half'
       });
     } else if (this.props.type === 4) {
@@ -116,6 +90,7 @@ export default class ContentBox extends Component {
     } else {
       chartType = 'EMPTY';
     }
+    console.log("LD: " + this.props.lineData);
   }
 
   chartUpdateHandler(e) {
@@ -123,19 +98,55 @@ export default class ContentBox extends Component {
       displayType: e.target.value
     })
   }
+  updateChartType(e){
+    let chart, name ;
+    let id = this.props.id;
+    if(e.target.value === 'Bar') {
+      chart = 1;
+      this.setState({
+        displayType: barChartsConfig(),
+        currentValue: 'Bar'
+      })
+    } else if(e.target.value === 'Line') {
+      chart = 2;
+      this.setState({
+        displayType: lineChartsConfig(),
+        currentValue: 'Line'
+      })
+    } else if(e.target.value === 'Half') {
+      chart = 3;
+      this.setState({
+        displayType: halfPieChartsConfig(),
+        currentValue: 'Half'
+      })
+    } else if(e.target.value === 'Area') {
+      chart = 4;
+      this.setState({
+        displayType: areaChartConfig(dummyArea),
+        currentValue: 'Area'
+      })
+    }
+    console.log(this.state.currentValue);
+    axios.post('/api/chart', {chart, name, id} );
+  }
+  componentWillMount() {
+    this.setState({
+      lineData: this.props.lineData
+    })
+  }
 
     render() {
-
-
         return (
-            <DisplayItem className="ContentBox">
+            <DisplayItem className="ContentBox" rand={this.state.rand}>
               <SettingsIcon onClick ={this.toggleSettings.bind(this)}></SettingsIcon>
-              <ReactHighCharts config={this.state.displayType}/>
+              <ReactHighCharts config={this.state.displayType} current={this.state.currentValue}/>
               {this.state.showSettings ?
                  <SettingsBox
                     close={this.toggleSettings.bind(this)}
                     update = {this.updateChartType.bind(this)}
                     current = {this.state.currentValue}
+                    id={this.props.id}
+                    updateType={this.updateChartType.bind(this)}
                    />
                  : null}
             </DisplayItem>

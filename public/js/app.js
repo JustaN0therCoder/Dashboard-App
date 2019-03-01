@@ -65385,7 +65385,8 @@ function (_Component) {
     _this.state = {
       showSettings: false,
       displayType: Object(_Charts_barGraph__WEBPACK_IMPORTED_MODULE_6__["default"])(_Boxes_DummyData__WEBPACK_IMPORTED_MODULE_10__["dummyBar"]),
-      currentValue: 'empty'
+      currentValue: 'empty',
+      rand: 1
     };
     return _this;
   }
@@ -65401,39 +65402,9 @@ function (_Component) {
       console.log(this.props.id);
     }
   }, {
-    key: "updateChartType",
-    value: function updateChartType(e) {
-      console.log('chart Updated!');
-
-      if (e.target.value === 'Half') {
-        this.setState({
-          displayType: Object(_Charts_HalfPie__WEBPACK_IMPORTED_MODULE_7__["default"])(),
-          currentValue: 'Half'
-        });
-      } else if (e.target.value === 'Line') {
-        this.setState({
-          displayType: Object(_Charts_Line__WEBPACK_IMPORTED_MODULE_4__["default"])(_Boxes_DummyData__WEBPACK_IMPORTED_MODULE_10__["dummyLine"]),
-          currentValue: 'Line'
-        });
-      } else if (e.target.value === 'Bar') {
-        this.setState({
-          displayType: Object(_Charts_barGraph__WEBPACK_IMPORTED_MODULE_6__["default"])(_Boxes_DummyData__WEBPACK_IMPORTED_MODULE_10__["dummyBar"]),
-          currentValue: "Bar"
-        });
-      } else if (e.target.value === 'Area') {
-        this.setState({
-          displayType: Object(_Charts_Area__WEBPACK_IMPORTED_MODULE_8__["default"])(_Boxes_DummyData__WEBPACK_IMPORTED_MODULE_10__["dummyArea"]),
-          currentValue: 'Area'
-        });
-      }
-
-      console.log(this.state.displayType);
-    }
-  }, {
     key: "componentDidMount",
     value: function componentDidMount() {
       var chartType;
-      console.log('type: ' + this.props.type);
 
       if (this.props.type === 1) {
         this.setState({
@@ -65442,12 +65413,12 @@ function (_Component) {
         });
       } else if (this.props.type === 2) {
         this.setState({
-          displayType: Object(_Charts_Line__WEBPACK_IMPORTED_MODULE_4__["default"])(_Boxes_DummyData__WEBPACK_IMPORTED_MODULE_10__["dummyLine"]),
+          displayType: Object(_Charts_Line__WEBPACK_IMPORTED_MODULE_4__["default"])(this.state.lineData),
           currentValue: 'Line'
         });
       } else if (this.props.type === 3) {
         this.setState({
-          displayType: Object(_Charts_HalfPie__WEBPACK_IMPORTED_MODULE_7__["default"])(),
+          displayType: Object(_Charts_HalfPie__WEBPACK_IMPORTED_MODULE_7__["default"])('test'),
           currentValue: 'Half'
         });
       } else if (this.props.type === 4) {
@@ -65458,6 +65429,8 @@ function (_Component) {
       } else {
         chartType = 'EMPTY';
       }
+
+      console.log("LD: " + this.props.lineData);
     }
   }, {
     key: "chartUpdateHandler",
@@ -65467,18 +65440,68 @@ function (_Component) {
       });
     }
   }, {
+    key: "updateChartType",
+    value: function updateChartType(e) {
+      var chart, name;
+      var id = this.props.id;
+
+      if (e.target.value === 'Bar') {
+        chart = 1;
+        this.setState({
+          displayType: Object(_Charts_barGraph__WEBPACK_IMPORTED_MODULE_6__["default"])(),
+          currentValue: 'Bar'
+        });
+      } else if (e.target.value === 'Line') {
+        chart = 2;
+        this.setState({
+          displayType: Object(_Charts_Line__WEBPACK_IMPORTED_MODULE_4__["default"])(),
+          currentValue: 'Line'
+        });
+      } else if (e.target.value === 'Half') {
+        chart = 3;
+        this.setState({
+          displayType: Object(_Charts_HalfPie__WEBPACK_IMPORTED_MODULE_7__["default"])(),
+          currentValue: 'Half'
+        });
+      } else if (e.target.value === 'Area') {
+        chart = 4;
+        this.setState({
+          displayType: Object(_Charts_Area__WEBPACK_IMPORTED_MODULE_8__["default"])(_Boxes_DummyData__WEBPACK_IMPORTED_MODULE_10__["dummyArea"]),
+          currentValue: 'Area'
+        });
+      }
+
+      console.log(this.state.currentValue);
+      axios.post('/api/chart', {
+        chart: chart,
+        name: name,
+        id: id
+      });
+    }
+  }, {
+    key: "componentWillMount",
+    value: function componentWillMount() {
+      this.setState({
+        lineData: this.props.lineData
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(DisplayItem, {
-        className: "ContentBox"
+        className: "ContentBox",
+        rand: this.state.rand
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(SettingsIcon, {
         onClick: this.toggleSettings.bind(this)
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_highcharts__WEBPACK_IMPORTED_MODULE_3___default.a, {
-        config: this.state.displayType
+        config: this.state.displayType,
+        current: this.state.currentValue
       }), this.state.showSettings ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Boxes_SettingsBox__WEBPACK_IMPORTED_MODULE_9__["default"], {
         close: this.toggleSettings.bind(this),
         update: this.updateChartType.bind(this),
-        current: this.state.currentValue
+        current: this.state.currentValue,
+        id: this.props.id,
+        updateType: this.updateChartType.bind(this)
       }) : null);
     }
   }]);
@@ -65919,35 +65942,10 @@ function (_Component) {
   }
 
   _createClass(SettingsBox, [{
-    key: "updateChart",
-    value: function updateChart(e) {
-      console.log('howdy world!');
-      var chart, name;
-
-      if (e.target.value === 'Bar') {
-        chart = 1;
-        name = "Bar";
-      } else if (e.target.value === 'Line') {
-        chart = 2;
-        name = "Line";
-      } else if (e.target.value === 'Half') {
-        chart = 3;
-        name = "Half";
-      } else if (e.target.value === 'Area') {
-        chart = 4;
-        name = "Area";
-      }
-
-      axios__WEBPACK_IMPORTED_MODULE_3___default.a.post('/api/chart', {
-        chart: chart,
-        name: name
-      });
-    }
-  }, {
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Settings, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
-        onChange: this.updateChart.bind(this),
+        onChange: this.props.updateType.bind(this),
         value: this.props.current
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "Area"
@@ -66049,7 +66047,8 @@ __webpack_require__.r(__webpack_exports__);
       plotShadow: false
     },
     title: {
-      text: 'Monthly<br>Browser<br>Shares',
+      // text: 'Monthly<br>Browser<br>Shares',
+      text: historical,
       align: 'center',
       verticalAlign: 'middle',
       y: 40
@@ -66567,7 +66566,8 @@ function (_Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Dash).call(this));
     _this.state = {
-      charts: []
+      charts: [],
+      btcPrice: null
     };
     console.log(_this = _possibleConstructorReturn(this, _getPrototypeOf(Dash).call(this)));
     return _this;
@@ -66585,7 +66585,14 @@ function (_Component) {
       }).catch(function (errors) {
         console.log(errors);
       });
-      console.log();
+      console.log(this.state.charts);
+      axios__WEBPACK_IMPORTED_MODULE_7___default.a.get('/api/btcPrice').then(function (response) {
+        _this2.setState({
+          btcPrice: response.data.bpi
+        });
+      }).catch(function (errors) {
+        console.log(errors);
+      });
     }
   }, {
     key: "render",
@@ -66594,12 +66601,16 @@ function (_Component) {
         className: "container-fluid"
       }, this.state.charts.map(function (chart) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          key: chart.id,
           className: "row"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          key: chart.id,
           className: "col"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Boxes_Boxes_js__WEBPACK_IMPORTED_MODULE_3__["default"], {
+          key: chart.id,
           type: chart.type,
-          id: chart.id
+          id: chart.id,
+          label: chart.name
         })));
       }))));
     }

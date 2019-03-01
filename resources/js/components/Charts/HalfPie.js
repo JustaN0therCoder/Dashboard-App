@@ -6,7 +6,8 @@ export default function(historical){
        plotShadow: false
      },
      title: {
-       text: 'Monthly<br>Browser<br>Shares',
+       // text: 'Monthly<br>Browser<br>Shares',
+       text: historical,
        align: 'center',
        verticalAlign: 'middle',
        y: 40

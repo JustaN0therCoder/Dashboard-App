@@ -18,3 +18,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::resource('chart', 'Api\ChartController');
+
+Route::resource('btcPrice', 'Api\btcController');
